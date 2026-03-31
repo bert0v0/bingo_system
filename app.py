@@ -1,15 +1,16 @@
 from flask import Flask
-from database import 初始化資料庫
-from scheduler import 啟動排程
 from api import api_bp
 
 app = Flask(__name__)
-
-初始化資料庫()
-啟動排程()
 
 app.register_blueprint(api_bp)
 
 @app.route("/")
 def home():
     return "Bingo 系統運行中"
+
+print("準備啟動 Flask")
+
+if __name__ == "__main__":
+    print("進入 main")
+    app.run(debug=True)
